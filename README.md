@@ -68,7 +68,7 @@ implementation 'com.tdshop.android:sdk:0.6'
     android:layout_height="wrap_content"/>
 ```
 
-1. 在 Java 代码中加载图片
+2. 在 Java 代码中加载图片
 
 ```java
 public class MainActivity extends AppCompatActivity {
