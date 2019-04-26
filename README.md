@@ -45,11 +45,11 @@ implementation 'com.tdshop.android:sdk:0.6'
 ## 3. 加载商城入口
 
 目前提供的商城入口有
-- Banner 图片入口 （[TDBannerView]()）
-- 图标图标入口 （[TDIconView]()）
-- 插屏广告入口 （[showInterstitialView]()）
+- Banner 图片入口 [TDBannerView](#tdbannerview)
+- 图标图标入口 [TDIconView](#tdiconview)
+- 插屏广告入口 [InterstitialView](#interstitialview)
 
-### 3.1 TDBannerView
+### TDBannerView
 
 触发 `load()` 操作后加载图片，点击 Banner 会跳转至商城首页。
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
 ```
 > **注意，初始化失败会导致图片加载不出来**
 
-### 3.2 TDIConView
+### TDIconView
 
 触发 `load()` 操作后加载图片，点击 Icon 会跳转商城。
 
@@ -96,10 +96,10 @@ public class MainActivity extends AppCompatActivity {
 - 如果宽高都为精准尺寸，则不会按照比例测量
 - 如果宽高都为未指定尺寸，则会按照原本图片大小测量
 
-1. 在布局文件中添加 `TDIConView`
+1. 在布局文件中添加 `TDIconView`
 
 ```xml
-  <com.tdshop.android.TDIConView
+  <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
 
 > **注意，初始化失败会导致图片加载不出来**
 
-### 3.3 显示插屏广告
+### InterstitialView
 
 显示插屏广告，只需在代码中调用即可。点击广告就会跳转商城。
 
