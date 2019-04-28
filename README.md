@@ -17,7 +17,7 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:0.6'
+implementation 'com.tdshop.android:sdk:0.7'
 ```
 
 > **最低支持 Android Sdk 19**
@@ -141,3 +141,6 @@ TDShop.showInterstitialView(activity);
 
 ![TD_ICON](images/TD_INTERSITE.jpg)
 
+## Demo 下载
+1. clone 本项目后运行
+2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
