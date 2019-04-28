@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mBannerView = findViewById(R.id.v_banner);
+          //加载 Banner
           mBannerView.load();
           ...
       }
@@ -118,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mIconView = findViewById(R.id.v_icon);
+          //加载 Icon
           mIconView.load();
           ...
       }
