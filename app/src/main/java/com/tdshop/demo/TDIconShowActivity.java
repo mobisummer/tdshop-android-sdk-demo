@@ -15,8 +15,8 @@ public class TDIconShowActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_td_icon_show);
-    if (getActionBar() != null) {
-      getActionBar().setTitle("TDIconView");
+    if (getSupportActionBar() != null) {
+      getSupportActionBar().setTitle("TDIconView");
     }
     mIconView = findViewById(R.id.v_icon);
     if (TDShop.sdkInitialized()) {

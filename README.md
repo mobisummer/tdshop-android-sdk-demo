@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
 ```
 > **注意，初始化失败会导致图片加载不出来**
 
+![TD_ICON](images/TD_BANNER.jpg)
+
 ### TDIconView
 
 触发 `load()` 操作后加载图片，点击 Icon 会跳转商城。
@@ -125,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
 
 > **注意，初始化失败会导致图片加载不出来**
 
+![TD_ICON](images/TD_ICON.jpg)
+
 ### InterstitialView
 
 显示插屏广告，只需在代码中调用即可。点击广告就会跳转商城。
@@ -132,4 +136,6 @@ public class MainActivity extends AppCompatActivity {
 ```java
 TDShop.showInterstitialView(activity);
 ```
+
+![TD_ICON](images/TD_INTERSITE.jpg)
 

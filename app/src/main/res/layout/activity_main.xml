@@ -22,22 +22,24 @@
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TDIconView 展示"/>
+        android:text="@string/tdiconview"
+        android:textAllCaps="false"/>
 
       <Button
         android:id="@+id/btn_banner"
-
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TDBannerView 展示"/>
+        android:text="@string/tdbannerview"
+        android:textAllCaps="false"/>
 
       <Button
         android:id="@+id/btn_show_interstitial"
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="showInterstitialView"/>
+        android:text="@string/show_interstitialview"
+        android:textAllCaps="false"/>
     </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
 
