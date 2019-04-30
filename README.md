@@ -39,7 +39,7 @@ implementation 'com.tdshop.android:sdk:0.7.5'
       }
     });
 ```
-> **`APP_ID` 请联系商务获取。**
+> **`APP_ID` 请联系商务获取。可先设置为 `myshop` 进行测试。**
 
 
 ## 3. 加载商城入口
