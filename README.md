@@ -24,6 +24,26 @@ implementation 'com.tdshop.android:sdk:0.7.5'
 
 ## 2. 初始化
 
+我们提供了两种初始化方式，自动初始化和手动初始化。
+> *推荐使用自动初始化，尽早地初始化可以加快商城打开的速度，提升用户体验，提高转化率。*
+
+### 自动初始化
+
+在 `AndroidManifest.xml` 中加入
+
+```xml
+    <meta-data
+      android:name="com.tdshop.android.ApplicationId"
+      android:value="<APP_ID>"/>
+
+    <!--开启 Debug 模式-->
+    <meta-data
+      android:name="com.tdshop.android.IsDebugEnabled"
+      android:value="true"/>
+```
+
+### 手动初始化
+
 在 `Application` 中进行初始化
 
 ```java
@@ -39,6 +59,8 @@ implementation 'com.tdshop.android:sdk:0.7.5'
       }
     });
 ```
+
+
 > **`APP_ID` 请联系商务获取。可先设置为 `myshop` 进行测试。**
 
 
