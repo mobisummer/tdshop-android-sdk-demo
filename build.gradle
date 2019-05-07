@@ -17,7 +17,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-android-sdk/master" }
+        maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-sdk-maven-repository/master" }
     }
 }
 

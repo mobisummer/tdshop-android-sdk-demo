@@ -9,7 +9,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-android-sdk/master" }
+        maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-sdk-maven-repository/master" }
     }
 }
 ```
@@ -44,7 +44,7 @@ implementation 'com.tdshop.android:sdk:0.7.5'
 
 ### 手动初始化
 
-在 `Application` 中进行初始化
+`sdkInitialize()`的ActionCallback会在主线程进行回调，调用可以保证初始化完成。
 
 ```java
     //开启 Debug 模式
@@ -70,6 +70,7 @@ implementation 'com.tdshop.android:sdk:0.7.5'
 - Banner 图片入口 [TDBannerView](#tdbannerview)
 - 图标图标入口 [TDIconView](#tdiconview)
 - 插屏广告入口 [InterstitialView](#interstitialview)
+- 自定义入口 [CreativeViewDelegate]
 
 ### TDBannerView
 
@@ -162,6 +163,66 @@ TDShop.showInterstitialView(activity);
 ```
 
 ![TD_ICON](images/TD_INTERSITE.jpg)
+
+### CreativeViewDelegate
+
+如果以上几种的入口不能满足需求，可以使用CreativeViewDelegate进入商场。
+
+1. 在自定义View中的构造函数初始化`CreativeViewDelegate`
+
+```java
+  private CreativeViewDelegate mCreativeViewDelegate;
+
+  public RectangularView(Context context) {
+    this(context, null);
+  }
+
+  public RectangularView(Context context, @Nullable AttributeSet attrs) {
+    this(context, attrs, 0);
+  }
+
+  public RectangularView(Context context,
+      @Nullable AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    mCreativeViewDelegate = new CreativeViewDelegate(this);
+  }
+```
+
+2. 在View展示的时候调用`performShow()`,可以在`onAttachedToWindow`中调用
+
+```java
+  @Override
+  protected void onAttachedToWindow() {
+    super.onAttachedToWindow();
+    mCreativeViewDelegate.performShow();
+  }
+```
+
+3. 在View消失的时候调用`performClosed()`,可以在`onDetachedFromWindow`中调用
+
+```java
+  @Override
+  protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    mCreativeViewDelegate.performClosed();
+  }
+```
+
+4. 重写`performClick`方法
+```java
+  @Override
+  public boolean performClick() {
+    return mCreativeViewDelegate.performClick();
+  }
+```
+
+5. 传入`placementId`，调用load加载, `placementId`请联系商务获取
+```java
+  public void load(String id) {
+    mCreativeViewDelegate.loadCreative(
+        CreativeRequest.builder().placementId(id).build());
+  }
+```
 
 ## Demo 下载
 1. clone 本项目后运行

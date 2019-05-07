@@ -3,4 +3,5 @@
   <string name="tdiconview">TDIconView 展示</string>
   <string name="tdbannerview">TDBannerView 展示</string>
   <string name="show_interstitialview">show InterstitialView</string>
+  <string name="tdcustomview">Custom View 展示</string>
 </resources>

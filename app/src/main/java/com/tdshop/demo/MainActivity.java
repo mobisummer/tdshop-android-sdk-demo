@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     findViewById(R.id.btn_show_interstitial).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (TDShop.sdkInitialized()) {
+        if (TDShop.isSdkInitialized()) {
           TDShop.showInterstitialView(MainActivity.this);
         }
       }
