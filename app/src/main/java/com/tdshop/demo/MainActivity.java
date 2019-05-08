@@ -36,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
         }
       }
     });
+
+    findViewById(R.id.btn_show_custom).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (TDShop.isSdkInitialized()) {
+          navigateTo(TDCustomShowActivity.class);
+        }
+      }
+    });
   }
 
   public void navigateTo(Class<?> clazz) {
