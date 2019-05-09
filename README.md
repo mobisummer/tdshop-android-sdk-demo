@@ -102,6 +102,33 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mBannerView = findViewById(R.id.v_banner);
+          mBannerView.setCreativeViewListener(new CreativeViewListener() {
+          @Override
+          public void onCreativeError(TDShopException e) {
+
+          }
+
+          @Override
+          public void onCreativeLoaded(View view) {
+            //显示 Banner
+            mBannerView.show();
+          }
+
+          @Override
+          public void onCreativeShowed(View view) {
+
+          }
+
+          @Override
+          public void onCreativeClosed(View view) {
+
+          }
+
+          @Override
+          public void onCreativeClicked(View view) {
+
+          }
+        });
           //加载 Banner
           mBannerView.load();
           ...
@@ -142,6 +169,33 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mIconView = findViewById(R.id.v_icon);
+          mIconView.setCreativeViewListener(new CreativeViewListener() {
+          @Override
+          public void onCreativeError(TDShopException e) {
+
+          }
+
+          @Override
+          public void onCreativeLoaded(View view) {
+            //显示 icon
+            mIconView.show();
+          }
+
+          @Override
+          public void onCreativeShowed(View view) {
+
+          }
+
+          @Override
+          public void onCreativeClosed(View view) {
+
+          }
+
+          @Override
+          public void onCreativeClicked(View view) {
+
+          }
+        });
           //加载 Icon
           mIconView.load();
           ...
