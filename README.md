@@ -17,7 +17,7 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.0.0'
+implementation 'com.tdshop.android:sdk:1.0.1'
 ```
 
 > **最低支持 Android Sdk 19**
