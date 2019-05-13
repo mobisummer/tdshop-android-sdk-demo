@@ -48,9 +48,7 @@ public class TDBannerShowActivity extends AppCompatActivity {
 
       }
     });
-    if (TDShop.isSdkInitialized()) {
-      mBannerView.load();
-    }
+    mBannerView.load();
   }
 
   @Override

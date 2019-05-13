@@ -40,9 +40,14 @@ public class MainActivity extends AppCompatActivity {
     findViewById(R.id.btn_show_custom).setOnClickListener(new OnClickListener() {
       @Override
       public void onClick(View v) {
-        if (TDShop.isSdkInitialized()) {
-          navigateTo(TDCustomShowActivity.class);
-        }
+        navigateTo(TDCustomShowActivity.class);
+      }
+    });
+
+    findViewById(R.id.btn_banner_list).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        navigateTo(TDBannerListActivity.class);
       }
     });
   }

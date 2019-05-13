@@ -30,6 +30,7 @@
     </activity>
     <activity android:name=".TDBannerShowActivity"/>
     <activity android:name=".TDIconShowActivity"/>
+    <activity android:name=".TDBannerListActivity"/>
   </application>
 
 </manifest>

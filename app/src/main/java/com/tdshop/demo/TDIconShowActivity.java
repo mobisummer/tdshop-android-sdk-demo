@@ -48,8 +48,6 @@ public class TDIconShowActivity extends AppCompatActivity {
 
       }
     });
-    if (TDShop.isSdkInitialized()) {
-      mIconView.load();
-    }
+    mIconView.load();
   }
 }
