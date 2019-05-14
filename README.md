@@ -17,7 +17,7 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.0.2'
+implementation 'com.tdshop.android:sdk:1.0.4'
 ```
 
 > **最低支持 Android Sdk 19。 为了保证系统稳定性，目前不建议在低于 19 的环境运行。在低于 19 的环境下，可能会出现商城加载不了的问题。**
