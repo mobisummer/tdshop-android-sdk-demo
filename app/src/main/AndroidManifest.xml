@@ -12,7 +12,7 @@
 
     <meta-data
       android:name="com.tdshop.android.ApplicationId"
-      android:value="myshop"/>
+      android:value="SPhotoEditor"/>
 
     <meta-data
       android:name="com.tdshop.android.IsDebugEnabled"

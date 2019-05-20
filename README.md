@@ -17,10 +17,12 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.0.4'
+implementation 'com.tdshop.android:sdk:1.1.0'
 ```
 
 > **最低支持 Android Sdk 19。 为了保证系统稳定性，目前不建议在低于 19 的环境运行。在低于 19 的环境下，可能会出现商城加载不了的问题。**
+
+> [版本更新内容](docs/update.md)
 
 ## 2. 初始化
 
@@ -71,8 +73,7 @@ implementation 'com.tdshop.android:sdk:1.0.4'
 - 图标图标入口 [TDIconView](#tdiconview)
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
-
-通过这些入口，可以进入后台配置好的商城页面。Banner 、Icon 、插屏广告的图片资源均由后台配置下发，目前暂时不支持配置多入口。多入口和自定义控件或是其他宽高比例的入口的需求可以利用 [CreativeViewDelegate](#creativeViewDelegate) 实现。
+- Layout入口 [TDCreativeLayout]( #tdcreativelayout)
 
 ### TDBannerView
 
@@ -91,6 +92,7 @@ implementation 'com.tdshop.android:sdk:1.0.4'
 ```xml
   <com.tdshop.android.TDBannerView
     android:id="@+id/v_banner"
+    app:td_placement_id="test_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -134,11 +136,15 @@ public class MainActivity extends AppCompatActivity {
           }
         });
           //加载 Banner
-          mBannerView.load();
+          mBanner.load();
+          //mBanner.show();//直接显示
           ...
       }
 }
 ```
+
+除了在 `xml` 中设置 `placementId` ，也可以调用`     mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());`在设置 `placementId`.
+
 > **注意，初始化失败会导致图片加载不出来**
 
 ![TD_ICON](images/TD_BANNER.jpg)
@@ -160,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
 ```xml
   <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
+    app:td_placement_id="test_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -204,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Icon
           mIconView.load();
+          //mIconView.show();//直接显示
           ...
       }
 
@@ -212,7 +220,10 @@ public class MainActivity extends AppCompatActivity {
 
 > **注意，初始化失败会导致图片加载不出来**
 
+除了在 `xml` 中设置 `placementId` ，也可以调用`     mIcon.loadCreative(CreativeRequest.builder().placementId("placemenId").build());`加载特定`placementId`的图标。
+
 ![TD_ICON](images/TD_ICON.jpg)
+
 
 ### InterstitialView
 
@@ -220,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
 
 ```java
 TDShop.showInterstitialView(activity);
+TDShop.showInterstitialView("placementId");
 ```
 
 ![TD_ICON](images/TD_INTERSITE.jpg)
@@ -285,6 +297,35 @@ TDShop.showInterstitialView(activity);
         CreativeRequest.builder().placementId(id).build());
   }
 ```
+
+### TDCreativeLayout
+
+通过增加一层布局，快速配置入口。`TDCreativeLayout` 继承自 `FrameLayout`，因此布局排布规则参考 `FrameLayout`。
+
+```xml
+ <com.tdshop.android.creative.TDCreativeLayout
+      android:id="@+id/creative_layout_2"
+      android:layout_width="match_parent"
+      android:layout_height="100dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintTop_toBottomOf="@+id/v_custom_creative">
+
+      <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"
+        app:TDCreativeLayout_placement_id="test_layout_002"/>
+
+    </com.tdshop.android.creative.TDCreativeLayout>
+```
+
+`placementId` 的配置分为两种形式
+
+- 在 `TDCreativeLayout` 中设置 `app:td_placement_id="test_layout_001"`，这样点击整个 `layout` 就会进入商城
+- 在 `TDCreativeLayout` 的子控件中设置 `app:TDCreativeLayout_placement_id="test_layout_002"`，这样只有点击子控件才会进入商城。
+- `layout` 与子控件同时设置了 `placementId`，以子控件为准
+- 多个子控件设置了 `placementId` ，以第一个为准。
 
 ## Demo 下载
 1. clone 本项目后运行
