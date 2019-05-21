@@ -17,10 +17,12 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.0.5'
+implementation 'com.tdshop.android:sdk:1.1.0'
 ```
 
 > **最低支持 Android Sdk 19。 为了保证系统稳定性，目前不建议在低于 19 的环境运行。在低于 19 的环境下，可能会出现商城加载不了的问题。**
+
+> [版本更新内容](docs/update.md)
 
 ## 2. 初始化
 
@@ -72,11 +74,9 @@ implementation 'com.tdshop.android:sdk:1.0.5'
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
 
-通过这些入口，可以进入后台配置好的商城页面。Banner 、Icon 、插屏广告的图片资源均由后台配置下发，目前暂时不支持配置多入口。多入口和自定义控件或是其他宽高比例的入口的需求可以利用 [CreativeViewDelegate](#creativeViewDelegate) 实现。
-
 ### TDBannerView
 
-触发 `load()` 操作后加载图片，点击 Banner 会跳转至商城首页。
+显示 Banner 图片，点击 Banner 会跳转至商城首页。
 
 - **MidasBanner宽高比例为720:372**
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
@@ -84,13 +84,13 @@ implementation 'com.tdshop.android:sdk:1.0.5'
 - 如果宽高都为精准尺寸，则不会按照比例测量
 - 如果宽高都为未指定尺寸，则会按照原本图片大小测量
 
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#creativeViewDelegate)
 
 1. 在布局文件中添加 `TDBannerView`
 
 ```xml
   <com.tdshop.android.TDBannerView
     android:id="@+id/v_banner"
+    app:td_placement_id="test_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -134,18 +134,26 @@ public class MainActivity extends AppCompatActivity {
           }
         });
           //加载 Banner
-          mBannerView.load();
+          mBanner.load();
+          
+          //mBanner.show();//直接显示
+          
+          //在代码中设置 placementId
+          //mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
       }
 }
 ```
+
+除了在 `xml` 中设置 `placementId` ，也可以调用`     mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());`在设置 `placementId`.
+
 > **注意，初始化失败会导致图片加载不出来**
 
 ![TD_ICON](images/TD_BANNER.jpg)
 
 ### TDIconView
 
-触发 `load()` 操作后加载图片，点击 Icon 会跳转商城。
+显示 Icon 图片，点击 Icon 会跳转商城。
 
 - **TDIConView宽高比例为1:1**
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
@@ -153,13 +161,12 @@ public class MainActivity extends AppCompatActivity {
 - 如果宽高都为精准尺寸，则不会按照比例测量
 - 如果宽高都为未指定尺寸，则会按照原本图片大小测量
 
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#creativeViewDelegate)
-
 1. 在布局文件中添加 `TDIconView`
 
 ```xml
   <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
+    app:td_placement_id="test_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -204,6 +211,12 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Icon
           mIconView.load();
+          
+          //mIconView.show();//直接显示
+          
+          
+          //在代码中设置 placementId
+          //mIconView.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
       }
 
@@ -212,7 +225,10 @@ public class MainActivity extends AppCompatActivity {
 
 > **注意，初始化失败会导致图片加载不出来**
 
+除了在 `xml` 中设置 `placementId` ，也可以调用`     mIcon.loadCreative(CreativeRequest.builder().placementId("placemenId").build());`加载特定`placementId`的图标。
+
 ![TD_ICON](images/TD_ICON.jpg)
+
 
 ### InterstitialView
 
@@ -220,11 +236,10 @@ public class MainActivity extends AppCompatActivity {
 
 ```java
 TDShop.showInterstitialView(activity);
+TDShop.showInterstitialView("placementId");
 ```
 
 ![TD_ICON](images/TD_INTERSITE.jpg)
-
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#CreativeViewDelegate)
 
 ### CreativeViewDelegate
 
