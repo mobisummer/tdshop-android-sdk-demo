@@ -73,7 +73,6 @@ implementation 'com.tdshop.android:sdk:1.1.0'
 - 图标图标入口 [TDIconView](#tdiconview)
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
-- Layout入口 [TDCreativeLayout]( #tdcreativelayout)
 
 ### TDBannerView
 
@@ -297,35 +296,6 @@ TDShop.showInterstitialView("placementId");
         CreativeRequest.builder().placementId(id).build());
   }
 ```
-
-### TDCreativeLayout
-
-通过增加一层布局，快速配置入口。`TDCreativeLayout` 继承自 `FrameLayout`，因此布局排布规则参考 `FrameLayout`。
-
-```xml
- <com.tdshop.android.creative.TDCreativeLayout
-      android:id="@+id/creative_layout_2"
-      android:layout_width="match_parent"
-      android:layout_height="100dp"
-      android:layout_marginTop="8dp"
-      app:layout_constraintTop_toBottomOf="@+id/v_custom_creative">
-
-      <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:src="@mipmap/ic_launcher"
-        app:TDCreativeLayout_placement_id="test_layout_002"/>
-
-    </com.tdshop.android.creative.TDCreativeLayout>
-```
-
-`placementId` 的配置分为两种形式
-
-- 在 `TDCreativeLayout` 中设置 `app:td_placement_id="test_layout_001"`，这样点击整个 `layout` 就会进入商城
-- 在 `TDCreativeLayout` 的子控件中设置 `app:TDCreativeLayout_placement_id="test_layout_002"`，这样只有点击子控件才会进入商城。
-- `layout` 与子控件同时设置了 `placementId`，以子控件为准
-- 多个子控件设置了 `placementId` ，以第一个为准。
 
 ## Demo 下载
 1. clone 本项目后运行

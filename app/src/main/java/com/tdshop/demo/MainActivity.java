@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.webkit.WebView;
 import com.tdshop.android.TDShop;
 
 public class MainActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         if (TDShop.isSdkInitialized()) {
-          TDShop.showInterstitialView(MainActivity.this);
+          TDShop.showInterstitialView(MainActivity.this, "test_interstitial_001");
         }
       }
     });
