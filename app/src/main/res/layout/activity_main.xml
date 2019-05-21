@@ -56,7 +56,6 @@
         android:text="@string/tdcustomview"
         android:textAllCaps="false"/>
 
-
     </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
 

@@ -76,7 +76,7 @@ implementation 'com.tdshop.android:sdk:1.1.0'
 
 ### TDBannerView
 
-触发 `load()` 操作后加载图片，点击 Banner 会跳转至商城首页。
+显示 Banner 图片，点击 Banner 会跳转至商城首页。
 
 - **MidasBanner宽高比例为720:372**
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
@@ -84,7 +84,6 @@ implementation 'com.tdshop.android:sdk:1.1.0'
 - 如果宽高都为精准尺寸，则不会按照比例测量
 - 如果宽高都为未指定尺寸，则会按照原本图片大小测量
 
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#creativeViewDelegate)
 
 1. 在布局文件中添加 `TDBannerView`
 
@@ -136,7 +135,11 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Banner
           mBanner.load();
+          
           //mBanner.show();//直接显示
+          
+          //在代码中设置 placementId
+          //mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
       }
 }
@@ -150,15 +153,13 @@ public class MainActivity extends AppCompatActivity {
 
 ### TDIconView
 
-触发 `load()` 操作后加载图片，点击 Icon 会跳转商城。
+显示 Icon 图片，点击 Icon 会跳转商城。
 
 - **TDIConView宽高比例为1:1**
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
 - 如果高为精准尺寸宽为最大尺寸，则会以高为基准测量宽。
 - 如果宽高都为精准尺寸，则不会按照比例测量
 - 如果宽高都为未指定尺寸，则会按照原本图片大小测量
-
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#creativeViewDelegate)
 
 1. 在布局文件中添加 `TDIconView`
 
@@ -210,7 +211,12 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Icon
           mIconView.load();
+          
           //mIconView.show();//直接显示
+          
+          
+          //在代码中设置 placementId
+          //mIconView.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
       }
 
@@ -234,8 +240,6 @@ TDShop.showInterstitialView("placementId");
 ```
 
 ![TD_ICON](images/TD_INTERSITE.jpg)
-
-> **暂时只能显示单一的入口图片**，多入口方案请查看[CreativeViewDelegate](#CreativeViewDelegate)
 
 ### CreativeViewDelegate
 
