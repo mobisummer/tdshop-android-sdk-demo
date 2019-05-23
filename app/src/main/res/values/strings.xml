@@ -5,4 +5,5 @@
   <string name="show_interstitialview">show InterstitialView</string>
   <string name="tdcustomview">Custom View 展示</string>
   <string name="tdbanner_list">TDBanner List 展示</string>
+  <string name="tdmulticustomview">Multi Custom View 展示</string>
 </resources>

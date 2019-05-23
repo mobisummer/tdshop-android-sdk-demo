@@ -56,6 +56,13 @@
         android:text="@string/tdcustomview"
         android:textAllCaps="false"/>
 
+      <Button
+        android:id="@+id/btn_show_multi_custom"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tdmulticustomview"
+        android:textAllCaps="false"/>
     </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
 

@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import com.tdshop.android.creative.CreativeRequest;
 import com.tdshop.android.creative.CreativeViewDelegate;
 import com.tdshop.android.creative.CreativeViewListener;
+import com.tdshop.android.creative.model.CreativeMaterial;
 
 /**
  * RectangularView class.
@@ -26,15 +27,13 @@ public class RectangularView extends AppCompatImageView {
     this(context, attrs, 0);
   }
 
-  public RectangularView(Context context,
-      @Nullable AttributeSet attrs, int defStyleAttr) {
+  public RectangularView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
     super(context, attrs, defStyleAttr);
     mCreativeViewDelegate = new CreativeViewDelegate(this);
   }
 
   public void load(String id) {
-    mCreativeViewDelegate.loadCreative(
-        CreativeRequest.builder().placementId(id).build());
+    mCreativeViewDelegate.loadCreative(CreativeRequest.builder().placementId(id).build());
   }
 
   public void setCreateListener(CreativeViewListener listener) {
@@ -51,6 +50,10 @@ public class RectangularView extends AppCompatImageView {
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
     mCreativeViewDelegate.performClosed();
+  }
+
+  public CreativeMaterial getCreativeMaterial() {
+    return mCreativeViewDelegate.getCreativeMaterial();
   }
 
   @Override

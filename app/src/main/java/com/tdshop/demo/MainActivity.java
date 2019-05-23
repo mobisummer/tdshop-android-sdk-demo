@@ -51,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
         navigateTo(TDBannerListActivity.class);
       }
     });
+
+    findViewById(R.id.btn_show_multi_custom).setOnClickListener(new OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        navigateTo(TDMultiCustomShowActivity.class);
+      }
+    });
   }
 
   public void navigateTo(Class<?> clazz) {
