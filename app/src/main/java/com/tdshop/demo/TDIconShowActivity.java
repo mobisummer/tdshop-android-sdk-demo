@@ -19,7 +19,7 @@ public class TDIconShowActivity extends AppCompatActivity {
     }
     mIconView = findViewById(R.id.v_icon);
     mIconView2 = findViewById(R.id.v_icon_2);
-    mIconView2.setPlacementId("test_icon_002");
+    mIconView2.setPlacementId("myshop_icon_001");
     mIconView.show();
     mIconView2.show();
   }

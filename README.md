@@ -1,5 +1,7 @@
 # Android 端 SDK 接入指引
 
+[TOC]
+
 ## 1. SDK 引入
 
 1.1 在**项目**的 `buidl.gradle` 加入
@@ -17,10 +19,10 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.1.0'
+implementation 'com.tdshop.android:sdk:1.2.1'
 ```
 
-> **最低支持 Android Sdk 19。 为了保证系统稳定性，目前不建议在低于 19 的环境运行。在低于 19 的环境下，可能会出现商城加载不了的问题。**
+> **最低支持 Android Sdk 16**
 
 > [版本更新内容](docs/update.md)
 
@@ -73,6 +75,7 @@ implementation 'com.tdshop.android:sdk:1.1.0'
 - 图标图标入口 [TDIconView](#tdiconview)
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
+- 自定义入口，根据标签返回多个素材 [MultiCreativeViewDelegate](#multiCreativeViewDelegate)
 
 ### TDBannerView
 
@@ -90,7 +93,7 @@ implementation 'com.tdshop.android:sdk:1.1.0'
 ```xml
   <com.tdshop.android.TDBannerView
     android:id="@+id/v_banner"
-    app:td_placement_id="test_banner_001"
+    app:td_placement_id="myshop_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -166,7 +169,7 @@ public class MainActivity extends AppCompatActivity {
 ```xml
   <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
-    app:td_placement_id="test_banner_001"
+    app:td_placement_id="myshop_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -301,6 +304,92 @@ TDShop.showInterstitialView("placementId");
   }
 ```
 
-## Demo 下载
+6.获取素材
+```java
+
+  // 当加载失败或没有进行加载时会返回空
+  CreativeMaterial creativeMaterial = mCreativeViewDelegate.getCreativeMaterialData();
+  // 标题
+  String title = creativeMaterial.getTitle();
+  // 内容
+  String content = creativeMaterial.getContent();
+  // 图片url
+  String url = creativeMaterial.getImageUrl();
+
+```
+
+### MultiCreativeViewDelegate
+根据转入的PlacementId与标签数组tags返回多个入口数据
+
+1. 在自定义View中的构造函数初始化`CreativeViewDelegate`
+
+```java
+  private MultiCreativeViewDelegate mMultiCreativeViewDelegate;
+
+  public CustomBannerView(Context context) {
+    this(context, null);
+  }
+
+  public CustomBannerView(Context context, @Nullable AttributeSet attrs) {
+    this(context, attrs, 0);
+  }
+
+  public CustomBannerView(Context context,
+      @Nullable AttributeSet attrs, int defStyleAttr) {
+    super(context, attrs, defStyleAttr);
+    mMultiCreativeViewDelegate = new MultiCreativeViewDelegate(this);
+  }
+```
+
+2. 在View展示的时候调用`performShow()`,可以在`onAttachedToWindow`中调用
+
+```java
+  @Override
+  protected void onAttachedToWindow() {
+    super.onAttachedToWindow();
+    mMultiCreativeViewDelegate.performShow();
+  }
+```
+
+3. 在View消失的时候调用`performClosed()`,可以在`onDetachedFromWindow`中调用
+
+```java
+  @Override
+  protected void onDetachedFromWindow() {
+    super.onDetachedFromWindow();
+    mMultiCreativeViewDelegate.performClosed();
+  }
+```
+
+4. 执行`performClick`方法跳转商城，需要传入素材里面的CreativeId
+```java
+
+  @Override
+  public boolean onBannerClick() {
+    mMultiCreativeViewDelegate.performClick(
+      mMultiCreativeViewDelegate.getCreativeMaterialData().get(position).getCreativeId());
+  }
+```
+
+5. 传入`placementId`，调用load加载, `placementId`请联系商务获取，可先用 `myshop_tag_001` 进行测试。
+```java
+  public void load(String id, String... tags) {
+    mMultiCreativeViewDelegate.loadCreative(
+        CreativeRequest.builder().placementId(id).tags(tags).build());
+  }
+```
+
+6.获取素材
+```java
+  // List 不为null, 当加载失败或没有进行加载时List会为empty
+  List<CreativeMaterial> creativeMaterialList = mMultiCreativeViewDelegate
+  	.getCreativeMaterialData();
+```
+
+
+## 4.Demo 下载
 1. clone 本项目后运行
 2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
+
+## 5.更新日志
+1. [update.md](../doc/update.md)

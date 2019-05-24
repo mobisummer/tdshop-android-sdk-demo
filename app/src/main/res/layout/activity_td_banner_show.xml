@@ -13,6 +13,6 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    app:td_placement_id="test_banner_001"/>
+    app:td_placement_id="myshop_banner_001"/>
 
 </android.support.constraint.ConstraintLayout>
