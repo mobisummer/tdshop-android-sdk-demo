@@ -1,5 +1,7 @@
 # Android 端 SDK 接入指引
 
+[TOC]
+
 ## 1. SDK 引入
 
 1.1 在**项目**的 `buidl.gradle` 加入
@@ -90,7 +92,7 @@ implementation 'com.tdshop.android:sdk:1.2.0'
 ```xml
   <com.tdshop.android.TDBannerView
     android:id="@+id/v_banner"
-    app:td_placement_id="test_banner_001"
+    app:td_placement_id="myshop_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -166,7 +168,7 @@ public class MainActivity extends AppCompatActivity {
 ```xml
   <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
-    app:td_placement_id="test_banner_001"
+    app:td_placement_id="myshop_banner_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -371,26 +373,19 @@ TDShop.showInterstitialView("placementId");
 5. 传入`placementId`，调用load加载, `placementId`请联系商务获取，可先用 `myshop_tag_001` 进行测试。
 ```java
   public void load(String id, String... tags) {
-    mCreativeViewDelegate.loadCreative(
+    mMultiCreativeViewDelegate.loadCreative(
         CreativeRequest.builder().placementId(id).tags(tags).build());
   }
 ```
 
 6.获取素材
 ```java
-
-  // 当加载失败或没有进行加载时会返回空
-  CreativeMaterial creativeMaterial = mCreativeViewDelegate.getCreativeMaterialData();
-  // 标题
-  String title = creativeMaterial.getTitle();
-  // 内容
-  String content = creativeMaterial.getContent();
-  // 图片url
-  String url = creativeMaterial.getImageUrl();
-
+  // List 不为null, 当加载失败或没有进行加载时List会为empty
+  List<CreativeMaterial> creativeMaterialList = mMultiCreativeViewDelegate
+  	.getCreativeMaterialData();
 ```
 
 
-## Demo 下载
+## 4.Demo 下载
 1. clone 本项目后运行
 2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)

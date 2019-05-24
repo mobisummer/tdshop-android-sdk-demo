@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         if (TDShop.isSdkInitialized()) {
-          TDShop.showInterstitialView(MainActivity.this, "test_interstitial_001");
+          TDShop.showInterstitialView(MainActivity.this, "myshop_interstitial_001");
         }
       }
     });

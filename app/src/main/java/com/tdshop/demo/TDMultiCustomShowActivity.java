@@ -2,15 +2,23 @@ package com.tdshop.demo;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
+import com.tdshop.android.TDShop;
 import com.tdshop.android.TDShopException;
 import com.tdshop.android.creative.CreativeViewListener;
 
 public class TDMultiCustomShowActivity extends AppCompatActivity {
 
   CustomBannerView banner;
+  private EditText mPidEt;
+  private EditText mTagsEt;
+  private Button mLoadBt;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +60,27 @@ public class TDMultiCustomShowActivity extends AppCompatActivity {
         Log.d("CustomCreativeView", "onCreativeClicked");
       }
     });
-  }
-
-  @Override
-  protected void onResume() {
-    super.onResume();
-    banner.load("myshop_tag_001", "wig");
+    mPidEt = findViewById(R.id.et_pid);
+    mTagsEt = findViewById(R.id.et_tags);
+    mLoadBt = findViewById(R.id.bt_load);
+    mLoadBt.setOnClickListener(
+        new OnClickListener() {
+          @Override
+          public void onClick(View v) {
+            if (!TDShop.isSdkInitialized()) {
+              Toast.makeText(TDMultiCustomShowActivity.this, "init sdk first", Toast.LENGTH_SHORT)
+                  .show();
+              return;
+            }
+            String[] tags;
+            String tagStr = mTagsEt.getText().toString();
+            if (TextUtils.isEmpty(tagStr)){
+              tags = null;
+            } else {
+              tags = tagStr.split(" ");
+            }
+            banner.load(mPidEt.getText().toString().trim(), tags);
+          }
+        });
   }
 }
