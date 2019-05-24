@@ -19,7 +19,7 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.2.0'
+implementation 'com.tdshop.android:sdk:1.2.1'
 ```
 
 > **最低支持 Android Sdk 16**
@@ -75,6 +75,7 @@ implementation 'com.tdshop.android:sdk:1.2.0'
 - 图标图标入口 [TDIconView](#tdiconview)
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
+- 自定义入口，根据标签返回多个素材 [MultiCreativeViewDelegate](#multiCreativeViewDelegate)
 
 ### TDBannerView
 
@@ -389,3 +390,6 @@ TDShop.showInterstitialView("placementId");
 ## 4.Demo 下载
 1. clone 本项目后运行
 2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
+
+## 5.更新日志
+1. [update.md](../doc/update.md)
