@@ -13,6 +13,7 @@ import java.util.Objects;
 public class TDBannerShowActivity extends AppCompatActivity {
 
   private TDBannerView mBannerView;
+  private TDBannerView mBannerView2;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -22,6 +23,8 @@ public class TDBannerShowActivity extends AppCompatActivity {
       getSupportActionBar().setTitle("TDBannerView");
     }
     mBannerView = findViewById(R.id.v_banner);
+    mBannerView2 = findViewById(R.id.v_banner_2);
+    mBannerView2.show();
     mBannerView.setCreativeViewListener(new CreativeViewListener() {
       @Override
       public void onCreativeError(TDShopException exception) {
