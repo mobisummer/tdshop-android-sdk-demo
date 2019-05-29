@@ -4,7 +4,7 @@
 
 ## 1. SDK 引入
 
-1.1 在**项目**的 `buidl.gradle` 加入
+1.1 在**项目**的 `build.gradle` 加入
 
 ```
 allprojects {
@@ -24,7 +24,7 @@ implementation 'com.tdshop.android:sdk:1.2.1'
 
 > **最低支持 Android Sdk 16**
 
-> [版本更新内容](docs/update.md)
+> [版本更新内容及行为变更](docs/update.md)
 
 ## 2. 初始化
 
@@ -392,4 +392,4 @@ TDShop.showInterstitialView("placementId");
 2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
 
 ## 5.更新日志
-1. [update.md](../doc/update.md)
+1. [update.md](docs/update.md)
