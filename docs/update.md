@@ -11,3 +11,7 @@
 
 - 【新增】[TDBanner](../README.md/#tdbanner)、[TDIcon](../README.md/#tdicon)、[插屏广告](../README.md/#interstitialview) 支持 `GIF`。
 - 【提升】提升首屏加载速度
+
+# V1.2.3
+
+- GIF 依赖增加支持 `armeabi` 架构
