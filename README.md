@@ -19,7 +19,25 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.2.2'
+implementation 'com.tdshop.android:sdk:1.2.3'
+```
+如果需要支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，对其他功能无影响
+```
+implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
+```
+需要注意的是 GIF 库中包含 so 文件，支持的架构有`armeabi-v7a`、`x86_64`、`arm64-v8a`、`x86`、`armeabi`。用户需要根据自己 APP 支持的架构做兼容，避免出现`java.lang.UnsatisfiedLinkError`错误。
+
+如，用户 APP 只支持 `armabi`，则需要在 `gradle` 指定使用 `armabi` 架构。
+```groove
+android {
+
+    defaultConfig{
+        ndk{
+            //输出armeabi的so
+            abiFilters "armeabi"
+        }
+    }
+}
 ```
 
 > **最低支持 Android Sdk 16**
