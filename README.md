@@ -19,7 +19,7 @@ allprojects {
 1.2 在**模块**的 `build.gradle` 文件中加入
 
 ```
-implementation 'com.tdshop.android:sdk:1.2.3'
+implementation 'com.tdshop.android:sdk:1.2.7'
 ```
 如果需要支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，对其他功能无影响
 ```
