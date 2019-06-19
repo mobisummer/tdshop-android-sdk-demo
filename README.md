@@ -9,7 +9,7 @@ repositories {
     maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-sdk-maven-repository/master" }
 }
 dependencies {
-    implementation 'com.tdshop.android:sdk:1.3.1'
+    implementation 'com.tdshop.android:sdk:2.0.0'
 }
 ```
 如果需要支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，对其他功能无影响
