@@ -12,7 +12,7 @@ repositories {
 2. 在**App**的 `build.gradle` 文件中加入
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.0.1'
+    implementation 'com.tdshop.android:sdk:2.0.2'
 }
 ```
 
