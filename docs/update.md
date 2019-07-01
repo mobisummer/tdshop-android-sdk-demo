@@ -39,3 +39,10 @@
 # V2.0.2
 
 - 【修复】修复序列化时，classloader 错误导致崩溃
+
+# V2.0.6
+
+- 【提升】仓库迁移至 JCenter ，提升加载速度
+- 【新增】`CreativeViewDelegate` 新增 `CreativeViewDelegate(@NonNull Context context)` 构造函数，以方便拆分数据与视图
+- 【修复】修复商城回退失效问题
+- 【修复】`MultiCreativeViewDelegate`数据第一次回调时为空的问题 

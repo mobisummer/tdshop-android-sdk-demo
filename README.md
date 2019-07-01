@@ -1,38 +1,21 @@
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.0.6) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.0.6/link)
+
 # Android 端 SDK 接入指引
 
 ## 1. SDK 引入
 
 ### `Gradle` 依赖
-1. 在**模块**的 `build.gradle` 文件中加入
-```groove
-repositories {
-    maven { url "https://raw.githubusercontent.com/mobisummer/tdshop-sdk-maven-repository/master" }
-}
-```
-2. 在**App**的 `build.gradle` 文件中加入
+1. 在**App**的 `build.gradle` 文件中加入
+
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.0.2'
+    implementation 'com.tdshop.android:sdk:2.0.6'
 }
 ```
 
 > **最低支持 Android Sdk 16**
 
 > [版本更新内容及行为变更](docs/update.md)
-
-### `aar` 包依赖
-
-考虑到 `gradle` 依赖在网络状况不好的情况下会导致同步时间过久，这里提供 `aar` 包依赖的方式，以供选择
-
-> [aar 包下载地址](https://github.com/mobisummer/tdshop-sdk-maven-repository/tree/master/com/tdshop/android/sdk)
-
-考虑到稳定性的问题，建议每次都下载**最新**的`aar`包，以免导致出现问题。
-另外，需要添加上 `pom` 文件中的依赖。
-
-```groove
-    implementation 'com.google.code.gson:gson:2.8.5'
-    implementation 'com.squareup.okhttp3:okhttp:3.12.3'
-```
 
 ### `GIF` 支持
 如果需要支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
@@ -320,6 +303,8 @@ TDShop.showInterstitialView(activity,"placementId");
     mCreativeViewDelegate = new CreativeViewDelegate(this);
   }
 ```
+
+也可利用 `CreativeViewDelegate(@NonNull Context context)` 进行构造，达到分离数据与视图的目的。
 
 2. 在View展示的时候调用`performShow()`,可以在`onAttachedToWindow`中调用
 
