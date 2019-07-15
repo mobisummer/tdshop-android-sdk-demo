@@ -18,7 +18,7 @@ dependencies {
 > [版本更新内容及行为变更](docs/update.md)
 
 ### `GIF` 支持
-如果需要支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
+如果想入口控件支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
 ```
 implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.8'
 ```
