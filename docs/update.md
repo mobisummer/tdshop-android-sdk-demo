@@ -51,3 +51,5 @@
 
 - 【修复】DeadSystemException 、InternalError 
 - 【新增】商城底部新增工具栏
+- 【修复】WebView目录冲突无需主应用做处理
+- 【新增】新的错误页UI
