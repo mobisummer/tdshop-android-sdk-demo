@@ -46,3 +46,8 @@
 - 【新增】`CreativeViewDelegate` 新增 `CreativeViewDelegate(@NonNull Context context)` 构造函数，以方便拆分数据与视图
 - 【修复】修复商城回退失效问题
 - 【修复】`MultiCreativeViewDelegate`数据第一次回调时为空的问题 
+
+# V2.1.0
+
+- 【修复】DeadSystemException 、InternalError 
+- 【新增】商城底部新增工具栏
