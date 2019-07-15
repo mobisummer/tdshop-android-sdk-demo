@@ -49,7 +49,12 @@
 
 # V2.1.0
 
-- 【修复】DeadSystemException 、InternalError 
 - 【新增】商城底部新增工具栏
 - 【修复】WebView目录冲突无需主应用做处理
 - 【新增】新的错误页UI
+- 【修复】Bugfix
+    - DeadSystemException 
+    - InternalError
+    - `<input>` 失效问题
+    - NPE
+    - 非 http、https 链接加载问题
