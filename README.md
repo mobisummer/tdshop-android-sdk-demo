@@ -17,6 +17,7 @@ dependencies {
 
 > [版本更新内容及行为变更](docs/update.md)
 
+> [TDShop SDK 收集的信息及获取的权限](docs/collect.md)
 ### `GIF` 支持
 如果想入口控件支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
 ```
