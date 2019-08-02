@@ -30,24 +30,5 @@ public class App extends Application {
     //    Log.d(TAG, "SDK init onFailed: " + e.toString());
     //  }
     //});
-
-    //Avoid WebView directory conflicts, which will causing crashes on 9.0
-    if ((getPackageName() + ":tdWeb").equals(getProcessName(this))) {
-      if (VERSION.SDK_INT >= VERSION_CODES.P) {
-        WebView.setDataDirectorySuffix("tdweb");
-      }
-    }
-    Log.i(TAG, "onCreate: " + getProcessName(this));
-  }
-
-  public static String getProcessName(Context context) {
-    ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
-    for (ActivityManager.RunningAppProcessInfo processInfo : manager.getRunningAppProcesses()) {
-      if (processInfo.pid == android.os.Process.myPid()) {
-        return processInfo.processName;
-      }
-    }
-
-    return null;
   }
 }
