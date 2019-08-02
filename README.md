@@ -79,27 +79,6 @@ android {
 
 > **`APP_ID` 请联系商务获取。可先设置为 `myshop` 进行测试。**
 
-### WebView 目录冲突
-
-若出现错误：
-
-```
-Caused by: java.lang.RuntimeException: Using WebView from more than one process at once with the same data directory is not supported. https://crbug.com/558377
-```
-
-这是由于 Android P 以及之后版本不支持同时从多个进程使用具有相同数据目录的WebView，需要在 Application 做兼容处理，在不同的进程中，指定不同的目录。
-
-```java
-    //Avoid WebView directory conflicts, which will causing crashes on 9.0
-    if ((getPackageName() + ":tdWeb").equals(getProcessName(this))) {
-      if (VERSION.SDK_INT >= VERSION_CODES.P) {
-        WebView.setDataDirectorySuffix("tdweb");
-      }
-    }
-```
-
-详情见Demo中的 [App.java](app/src/main/java/com/tdshop/demo/App.java)
-
 
 ## 3. 加载商城入口
 
