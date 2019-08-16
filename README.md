@@ -13,15 +13,13 @@ dependencies {
 }
 ```
 
-> **最低支持 Android Sdk 16**
-
 > [版本更新内容及行为变更](docs/update.md)
 
 > [TDShop SDK 收集的信息及获取的权限](docs/collect.md)
 ### `GIF` 支持
 如果想入口控件支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
 ```
-implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
+implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.16'
 ```
 需要注意的是 GIF 库中包含 so 文件，支持的架构有`armeabi-v7a`、`x86_64`、`arm64-v8a`、`x86`、`armeabi`。用户需要根据自己 APP 支持的架构做兼容，避免出现`java.lang.UnsatisfiedLinkError`错误。
 
