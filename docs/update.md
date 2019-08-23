@@ -76,3 +76,8 @@
 # V2.2.2
 - 【修复】Bug fix
     - 修复了由于单例引起的NullPointerException
+
+# V2.2.3
+- 【修复】Bug fix
+    - 修复已知线上崩溃问题
+- 【增强】增强SDK稳定性和拓展性
