@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.3) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.3/link)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.4) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.4/link)
 
 # Android 端 SDK 接入指引
 
@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.3'
+    implementation 'com.tdshop.android:sdk:2.2.4'
 }
 ```
 
@@ -91,7 +91,7 @@ android {
 
 显示 Banner 图片，点击 Banner 会跳转至商城首页。
 
-- **MidasBanner宽高比例为720:372**
+- **TDBannerView宽高比目前支持 720:372 与 320:50 两种尺寸，目前尺寸由后台进行下发控制，无需传额外的参数**
 - 支持 GIF
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
 - 如果高为精准尺寸宽为最大尺寸，则会以高为基准测量宽。
@@ -312,7 +312,7 @@ TDShop.showInterstitialView(activity,"placementId");
   }
 ```
 
-5. 传入`placementId`，调用load加载, `placementId`请联系商务获取，可先用 `myshop_custom_004` 进行测试。
+5. 传入`placementId`，调用load加载, `placementId`请联系商务获取，可先用 `myshop_custom_001` 进行测试。
 ```java
   public void load(String id) {
     mCreativeViewDelegate.loadCreative(
