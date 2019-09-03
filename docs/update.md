@@ -84,3 +84,7 @@
 
 # V2.2.4
 - 【增强】TDBannerView 增加320*50的尺寸
+
+# V2.2.5
+- 【修复】Bug fix
+    - `MultiCreativeViewDelegate`执行`performClick`无效的问题
