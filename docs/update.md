@@ -88,3 +88,8 @@
 # V2.2.5
 - 【修复】Bug fix
     - `MultiCreativeViewDelegate`执行`performClick`无效的问题
+
+# V2.2.6
+- 【修复】Bug fix
+    - 修复Gson解析等已知线上崩溃问题
+- 【增强】增强SDK稳定性和拓展性
