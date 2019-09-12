@@ -93,3 +93,10 @@
 - 【修复】Bug fix
     - 修复Gson解析等已知线上崩溃问题
 - 【增强】增强SDK稳定性和拓展性
+
+# V2.2.7
+- 【修复】Bug fix
+     - java.lang.ClassCastException: LinkedTreeMap cannot be cast to HostInfo
+     - NPE: Offer empty
+     - Thread starting during runtime shutdown
+     - 图片加载 ConcurrentModificationException
