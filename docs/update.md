@@ -103,4 +103,6 @@
 
 # V2.2.8
 - 【变更】入口加载GIF方式进行了变更，由原本使用pl.droidsonroids.gif加载gif变更为Glide
-- 【修复】修复设备id高版本重复的问题
+- 【修复】修复设备id高版本重复的问题，导致DAU数据有偏差
+- 【修复】修复CreativeViewListener onCreativeShowed 不回调的问题
+- 【增强】更新demo
