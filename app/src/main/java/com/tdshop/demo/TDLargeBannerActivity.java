@@ -5,15 +5,12 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import com.tdshop.android.TDBannerView;
-import com.tdshop.android.TDShop;
 import com.tdshop.android.TDShopException;
 import com.tdshop.android.creative.CreativeViewListener;
-import java.util.Objects;
 
-public class TDBannerShowActivity extends AppCompatActivity {
+public class TDLargeBannerActivity extends AppCompatActivity {
 
   private TDBannerView mBannerView;
-  private TDBannerView mBannerView2;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,34 +20,27 @@ public class TDBannerShowActivity extends AppCompatActivity {
       getSupportActionBar().setTitle("TDBannerView");
     }
     mBannerView = findViewById(R.id.v_banner);
-    mBannerView2 = findViewById(R.id.v_banner_2);
-    mBannerView2.show();
-    mBannerView.setCreativeViewListener(new CreativeViewListener() {
-      @Override
-      public void onCreativeError(TDShopException exception) {
+    mBannerView.setBannerType(TDBannerView.TYPE_LARGE_BANNER);
+    mBannerView.setCreativeViewListener(
+        new CreativeViewListener() {
+          @Override
+          public void onCreativeError(TDShopException exception) {}
 
-      }
+          @Override
+          public void onCreativeLoaded(View view) {
+            mBannerView.show();
+          }
 
-      @Override
-      public void onCreativeLoaded(View view) {
-        mBannerView.show();
-      }
+          @Override
+          public void onCreativeShowed(View view) {}
 
-      @Override
-      public void onCreativeShowed(View view) {
+          @Override
+          public void onCreativeClicked(View view) {}
 
-      }
-
-      @Override
-      public void onCreativeClicked(View view) {
-
-      }
-
-      @Override
-      public void onCreativeClosed(View view) {
-
-      }
-    });
+          @Override
+          public void onCreativeClosed(View view) {}
+        });
+    mBannerView.setPlacementId("myshop_banner_001");
     mBannerView.load();
   }
 

@@ -22,7 +22,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tdiconview"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
       <Button
         android:id="@+id/btn_banner"
@@ -30,15 +30,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tdbannerview"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
       <Button
-        android:id="@+id/btn_banner_list"
+        android:id="@+id/btn_large_banner"
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tdbanner_list"
-        android:textAllCaps="false"/>
+        android:text="@string/large_banner"
+        android:textAllCaps="false" />
 
       <Button
         android:id="@+id/btn_show_interstitial"
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/show_interstitialview"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
       <Button
         android:id="@+id/btn_show_custom"
@@ -54,7 +54,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tdcustomview"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
 
       <Button
         android:id="@+id/btn_show_multi_custom"
@@ -62,7 +62,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/tdmulticustomview"
-        android:textAllCaps="false"/>
+        android:textAllCaps="false" />
+      <Button
+        android:id="@+id/btn_handle_deeplink"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="handle deeplink"
+        android:textAllCaps="false" />
+
+      <Button
+        android:id="@+id/btn_configurable"
+        style="@style/ButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Configurable Activity"
+        android:textAllCaps="false" />
     </LinearLayout>
   </android.support.v4.widget.NestedScrollView>
 

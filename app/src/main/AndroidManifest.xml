@@ -29,9 +29,9 @@
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".TDBannerShowActivity"/>
+    <activity android:name=".TDBannerActivity"/>
+    <activity android:name=".TDLargeBannerActivity"/>
     <activity android:name=".TDIconShowActivity"/>
-    <activity android:name=".TDBannerListActivity"/>
     <activity android:name=".TDMultiCustomShowActivity"/>
   </application>
 

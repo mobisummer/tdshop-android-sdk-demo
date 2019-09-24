@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.7) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.7/link)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.8) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.8/link)
 
 # Android 端 SDK 接入指引
 
@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.7'
+    implementation 'com.tdshop.android:sdk:2.2.8'
 }
 ```
 
@@ -19,21 +19,8 @@ dependencies {
 ### `GIF` 支持
 如果想入口控件支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
 ```
-implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.17'
-```
-需要注意的是 GIF 库中包含 so 文件，支持的架构有`armeabi-v7a`、`x86_64`、`arm64-v8a`、`x86`、`armeabi`。用户需要根据自己 APP 支持的架构做兼容，避免出现`java.lang.UnsatisfiedLinkError`错误。
-
-如，用户 APP 只支持 `armabi`，则需要在 `gradle` 指定使用 `armabi` 架构。
-```groove
-android {
-
-    defaultConfig{
-        ndk{
-            //输出armeabi的so
-            abiFilters "armeabi"
-        }
-    }
-}
+    implementation "com.github.bumptech.glide:glide:4.9.0"
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 ```
 
 ## 2. 初始化

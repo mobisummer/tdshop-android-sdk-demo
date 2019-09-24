@@ -1,9 +1,10 @@
 <resources>
-  <string name="app_name">TDShopDemo</string>
+  <string name="app_name">TDShopSDK</string>
   <string name="tdiconview">TDIconView 展示</string>
-  <string name="tdbannerview">TDBannerView 展示</string>
+  <string name="tdbannerview">Banner 展示</string>
   <string name="show_interstitialview">show InterstitialView</string>
   <string name="tdcustomview">Custom View 展示</string>
-  <string name="tdbanner_list">TDBanner List 展示</string>
+  <string name="large_banner">Large Banner 展示</string>
   <string name="tdmulticustomview">Multi Custom View 展示</string>
+
 </resources>
