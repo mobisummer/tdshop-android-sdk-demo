@@ -8,7 +8,6 @@ import com.tdshop.android.TDIconView;
 public class TDIconShowActivity extends AppCompatActivity {
 
   private TDIconView mIconView;
-  private TDIconView mIconView2;
 
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -18,9 +17,6 @@ public class TDIconShowActivity extends AppCompatActivity {
       getSupportActionBar().setTitle("TDIconView");
     }
     mIconView = findViewById(R.id.v_icon);
-    mIconView2 = findViewById(R.id.v_icon_2);
-    mIconView2.setPlacementId("myshop_icon_002");
     mIconView.show();
-    mIconView2.show();
   }
 }
