@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.8) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.8/link)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.9) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.9/link)
 
 # Android 端 SDK 接入指引
 
@@ -9,19 +9,16 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.8'
+    implementation 'com.tdshop.android:sdk:2.2.9'
 }
 ```
 
 > [版本更新内容及行为变更](docs/update.md)
 
 > [TDShop SDK 收集的信息及获取的权限](docs/collect.md)
+
 ### `GIF` 支持
-如果想入口控件支持 GIF ，需要加上 GIF 依赖库；不加上则无法显示 GIF ，只显示图片或gif的某一帧，对其他功能无影响
-```
-    implementation "com.github.bumptech.glide:glide:4.9.0"
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
-```
+入口图片展示已支持 GIF，无需依赖第三方库
 
 ## 2. 初始化
 
