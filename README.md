@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=V2.2.10) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/V2.2.10/link)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/_latestVersion)
 
 # Android 端 SDK 接入指引
 
