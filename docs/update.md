@@ -111,3 +111,8 @@
 - 【增强】入口图片展示已支持 GIF，无需依赖第三方库
 - 【修复】修复了因2.2.8版本Glide版兼容性问题，导致加载入口时ANR或崩溃
 - 【变更】该版本依赖了Google play services 16.0.0
+
+# V2.2.10
+- 【修复】java.lang.ArithmeticException: divide by zero
+- 【修复】java.lang.IllegalStateException closed
+- 【修复】接口请求优化

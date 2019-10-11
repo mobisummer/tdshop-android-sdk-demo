@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=2.2.9) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/2.2.9/link)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg?version=V2.2.10) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/V2.2.10/link)
 
 # Android 端 SDK 接入指引
 
@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.9'
+    implementation 'com.tdshop.android:sdk:V2.2.10'
 }
 ```
 
