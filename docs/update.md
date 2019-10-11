@@ -115,4 +115,5 @@
 # V2.2.10
 - 【修复】java.lang.ArithmeticException: divide by zero
 - 【修复】java.lang.IllegalStateException closed
+- 【修复】修复了在特定情况下网络输出流没有关闭的bug
 - 【修复】接口请求优化
