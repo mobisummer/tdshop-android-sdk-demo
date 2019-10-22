@@ -391,4 +391,3 @@ TDShop.showInterstitialView(activity,"placementId");
   	.getCreativeMaterialData();
 ```
 
-## [4.更新日志](docs/update.md)
