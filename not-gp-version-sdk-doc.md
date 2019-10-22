@@ -391,9 +391,4 @@ TDShop.showInterstitialView(activity,"placementId");
   	.getCreativeMaterialData();
 ```
 
-
-## 4.Demo 下载
-1. clone 本项目后运行
-2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
-
-## [5.更新日志](docs/update.md)
+## [4.更新日志](docs/update.md)
