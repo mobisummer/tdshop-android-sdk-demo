@@ -1,4 +1,4 @@
-[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/tdshopsdk/images/download.svg) ](https://bintray.com/mobisummer/msmaven/tdshopsdk/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/mobisummer/msmaven/dynamic-tdshopsdk/images/download.svg) ](https://bintray.com/mobisummer/msmaven/dynamic-tdshopsdk/_latestVersion)
 
 # Android 端 SDK 接入指引
 
@@ -8,8 +8,13 @@
 1. 在**App**的 `build.gradle` 文件中加入
 
 ```groovy
+repositories {
+    maven {
+        url  "https://dl.bintray.com/mobisummer/msmaven"
+    }
+}
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.10'
+    implementation 'com.tdshop.android:dynamic-sdk:2.3.0'
 }
 ```
 
@@ -133,9 +138,9 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Banner
           mBanner.load();
-          
+
           //mBanner.show();//直接显示
-          
+
           //在代码中设置 placementId
           //mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
@@ -210,10 +215,10 @@ public class MainActivity extends AppCompatActivity {
         });
           //加载 Icon
           mIconView.load();
-          
+
           //mIconView.show();//直接显示
-          
-          
+
+
           //在代码中设置 placementId
           //mIconView.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
           ...
@@ -385,10 +390,3 @@ TDShop.showInterstitialView(activity,"placementId");
   List<CreativeMaterial> creativeMaterialList = mMultiCreativeViewDelegate
   	.getCreativeMaterialData();
 ```
-
-
-## 4.Demo 下载
-1. clone 本项目后运行
-2. [下载 APK](https://github.com/mobisummer/tdshop-android-sdk-demo/releases)
-
-## [5.更新日志](docs/update.md)

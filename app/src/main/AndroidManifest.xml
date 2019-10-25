@@ -11,13 +11,13 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
 
-    <meta-data
-      android:name="com.tdshop.android.ApplicationId"
-      android:value="myshop"/>
+<!--    <meta-data-->
+<!--      android:name="com.tdshop.android.ApplicationId"-->
+<!--      android:value="myshop"/>-->
 
-    <meta-data
-      android:name="com.tdshop.android.IsDebugEnabled"
-      android:value="true"/>
+<!--    <meta-data-->
+<!--      android:name="com.tdshop.android.IsDebugEnabled"-->
+<!--      android:value="true"/>-->
 
     <activity android:name=".TDCustomShowActivity"/>
 
