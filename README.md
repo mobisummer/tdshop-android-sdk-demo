@@ -14,7 +14,7 @@ repositories {
     }
 }
 dependencies {
-    implementation 'com.tdshop.android:dynamic-sdk:2.3.0'
+    implementation 'com.tdshop.android:dynamic-sdk:2.3.1'
 }
 ```
 
