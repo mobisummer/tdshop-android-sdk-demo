@@ -117,3 +117,8 @@
 - 【修复】java.lang.IllegalStateException closed
 - 【修复】修复了在特定情况下网络输出流没有关闭的bug
 - 【修复】接口请求优化
+
+# V2.3.0
+- 【增强】相比2.2版本SDK包体积减少300KB，功能不减
+- 【变更】自动初始化逻辑变更，使用自动初始化需要在AndroidManifest添加TDInitProvider
+- 【增强】新增内嵌型商城入口

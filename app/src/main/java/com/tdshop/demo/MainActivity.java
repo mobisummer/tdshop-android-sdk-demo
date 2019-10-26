@@ -58,6 +58,15 @@ public class MainActivity extends AppCompatActivity {
         navigateTo(TDMultiCustomShowActivity.class);
       }
     });
+
+    findViewById(R.id.btn_show_container)
+        .setOnClickListener(
+            new OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                navigateTo(TDShopContainerActivity.class);
+              }
+            });
   }
 
   public void navigateTo(Class<?> clazz) {
