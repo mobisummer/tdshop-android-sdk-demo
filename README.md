@@ -30,6 +30,11 @@ dependencies {
 在 `AndroidManifest.xml` 中加入
 
 ```xml
+    <provider
+      android:authorities="${applicationId}.TDInitProvider"
+      android:exported="false"
+      android:name="com.tdshop.android.TDInitProvider"/>
+
     <meta-data
       android:name="com.tdshop.android.ApplicationId"
       android:value="<APP_ID>"/>
