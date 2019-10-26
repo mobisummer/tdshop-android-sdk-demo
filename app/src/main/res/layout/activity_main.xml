@@ -72,11 +72,11 @@
         android:textAllCaps="false" />
 
       <Button
-        android:id="@+id/btn_configurable"
+        android:id="@+id/btn_show_container"
         style="@style/ButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Configurable Activity"
+        android:text="@string/tdshop_container"
         android:textAllCaps="false" />
     </LinearLayout>
   </android.support.v4.widget.NestedScrollView>

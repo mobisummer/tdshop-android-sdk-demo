@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.2.10'
+    implementation 'com.tdshop.android:sdk:2.3.0'
 }
 ```
 
@@ -385,7 +385,50 @@ TDShop.showInterstitialView(activity,"placementId");
   List<CreativeMaterial> creativeMaterialList = mMultiCreativeViewDelegate
   	.getCreativeMaterialData();
 ```
+### TDShopContainer
+该类型入口会提供一个Fragment，把Fragment添加到Activity或ViewPager中即可展示商城
+![TD_ICON](images/TD_SHOP_CONTAINER.jpg)
 
+1. 创建一个TDShopContainer并调用init，会返回一个商城Fragment。
+```java
+  private TDShopContainer mTDShopContainer;
+
+  Fragment containerFragment = mTDShopContainer.init(new HybridActionListener() {
+    @Override
+    public boolean onHybridRequestClose() {
+      finish();
+      return true;
+    }
+  });
+```
+
+2. 把Fragment添加到Activity或ViewPager中
+```java
+  // 请根据代码的实际情况进行调整
+  getSupportFragmentManager()
+    .beginTransaction()
+    .replace(R.id.content, containerFragment)
+    .commit();
+```
+
+3. 调用TDShopContainer.load，传入PlacementId与Callback(Callback可为空)进行加载.
+```java
+  mTDShopContainer.load(pid, new ActionCallback() {
+    @Override
+    public void onSucceed() {
+      Toast.makeText(TDShopContainerActivity.this, "load success", Toast.LENGTH_SHORT)
+        .show();
+    }
+
+    @Override
+    public void onFailed(Exception e) {
+      Toast.makeText(TDShopContainerActivity.this, "load failed", Toast.LENGTH_SHORT)
+        .show();
+      e.printStackTrace();
+    }
+  });
+  // mTDShopContainer.load(pid, null);
+```
 
 ## 4.Demo 下载
 1. clone 本项目后运行

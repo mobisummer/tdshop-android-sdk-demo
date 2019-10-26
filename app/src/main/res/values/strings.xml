@@ -6,5 +6,6 @@
   <string name="tdcustomview">Custom View 展示</string>
   <string name="large_banner">Large Banner 展示</string>
   <string name="tdmulticustomview">Multi Custom View 展示</string>
+  <string name="tdshop_container">Shop Container 展示</string>
 
 </resources>

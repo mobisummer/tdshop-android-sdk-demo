@@ -11,6 +11,8 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
 
+    <!-- Auto init start -->
+
     <meta-data
       android:name="com.tdshop.android.ApplicationId"
       android:value="myshop"/>
@@ -18,6 +20,13 @@
     <meta-data
       android:name="com.tdshop.android.IsDebugEnabled"
       android:value="true"/>
+
+    <provider
+      android:authorities="${applicationId}.TDInitProvider"
+      android:exported="false"
+      android:name="com.tdshop.android.TDInitProvider"/>
+
+    <!-- Auto init end -->
 
     <activity android:name=".TDCustomShowActivity"/>
 
@@ -33,6 +42,7 @@
     <activity android:name=".TDLargeBannerActivity"/>
     <activity android:name=".TDIconShowActivity"/>
     <activity android:name=".TDMultiCustomShowActivity"/>
+    <activity android:name=".TDShopContainerActivity" />
   </application>
 
 </manifest>
