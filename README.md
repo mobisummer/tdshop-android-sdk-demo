@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.3.0'
+    implementation 'com.tdshop.android:sdk:2.3.1'
 }
 ```
 
@@ -75,12 +75,15 @@ dependencies {
 - 插屏广告入口 [InterstitialView](#interstitialview)
 - 自定义入口 [CreativeViewDelegate](#creativeViewDelegate)
 - 自定义入口，根据标签返回多个素材 [MultiCreativeViewDelegate](#multiCreativeViewDelegate)
+- 内嵌型商城入口  [TDShopContainer](#tdshopcontainer)
 
 ### TDBannerView
 
 显示 Banner 图片，点击 Banner 会跳转至商城首页。
 
-- **TDBannerView宽高比目前支持 720:372 与 320:50 两种尺寸，目前尺寸由后台进行下发控制，无需传额外的参数**
+- **TDBannerView宽高比目前支持 720:372 (TDBannerView.TYPE_LARGE_BANNER) 与 320:50 (TDBannerView.TYPE_SMALL_BANNER) 两种尺寸**
+- **LARGE_BANNER 测试用 pid:myshop_banner_001 **
+- **SMALL_BANNER 测试用 pid:myshop_banner_002 **
 - 支持 GIF
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
 - 如果高为精准尺寸宽为最大尺寸，则会以高为基准测量宽。
@@ -109,41 +112,44 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mBannerView = findViewById(R.id.v_banner);
+          // 1.设置PlacementId
+          mBannerView.setPlacementId("myshop_banner_002");
+          // 2.设置Banner尺寸类型
+          mBannerView.setBannerType(TDBannerView.TYPE_SMALL_BANNER);
+          // 3.设置回调监听器
           mBannerView.setCreativeViewListener(new CreativeViewListener() {
-          @Override
-          public void onCreativeError(TDShopException e) {
+            @Override
+            public void onCreativeError(TDShopException e) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeLoaded(View view) {
-            //显示 Banner
-            mBannerView.show();
-          }
+            @Override
+            public void onCreativeLoaded(View view) {
+              // 5.显示 Banner
+              mBannerView.show();
+            }
 
-          @Override
-          public void onCreativeShowed(View view) {
+            @Override
+            public void onCreativeShowed(View view) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeClosed(View view) {
+            @Override
+            public void onCreativeClosed(View view) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeClicked(View view) {
+            @Override
+            public void onCreativeClicked(View view) {
 
-          }
-        });
-          //加载 Banner
+            }
+          });
+
+          // 4.加载 Banner
           mBanner.load();
-          
-          //mBanner.show();//直接显示
-          
-          //在代码中设置 placementId
-          //mBanner.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
-          ...
+
+          // 如果不需要回调可以忽略3、4直接调用显示
+          //mBanner.show();
       }
 }
 ```
@@ -159,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
 显示 Icon 图片，点击 Icon 会跳转商城。
 
 - **TDIConView宽高比例为1:1**
+- **ICON 测试用 pid:myshop_icon_001 **
 - 支持 GIF
 - 如果宽为精准尺寸高为最大尺寸，则会以宽为基准测量高。
 - 如果高为精准尺寸宽为最大尺寸，则会以高为基准测量宽。
@@ -170,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
 ```xml
   <com.tdshop.android.TDIconView
     android:id="@+id/v_icon"
-    app:td_placement_id="myshop_banner_001"
+    app:td_placement_id="myshop_icon_001"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>
 ```
@@ -186,42 +193,41 @@ public class MainActivity extends AppCompatActivity {
           super.onCreate(savedInstanceState);
           ...
           mIconView = findViewById(R.id.v_icon);
+          // 1.设置PlacementId
+          mIconView.setPlacementId("myshop_icon_001")
+          // 2.设置回调监听器
           mIconView.setCreativeViewListener(new CreativeViewListener() {
-          @Override
-          public void onCreativeError(TDShopException e) {
+            @Override
+            public void onCreativeError(TDShopException e) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeLoaded(View view) {
-            //显示 icon
-            mIconView.show();
-          }
+            @Override
+            public void onCreativeLoaded(View view) {
+              // 4.显示 icon
+              mIconView.show();
+            }
 
-          @Override
-          public void onCreativeShowed(View view) {
+            @Override
+            public void onCreativeShowed(View view) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeClosed(View view) {
+            @Override
+            public void onCreativeClosed(View view) {
 
-          }
+            }
 
-          @Override
-          public void onCreativeClicked(View view) {
+            @Override
+            public void onCreativeClicked(View view) {
 
-          }
-        });
-          //加载 Icon
+            }
+          });
+          // 3.加载 Icon
           mIconView.load();
-          
-          //mIconView.show();//直接显示
-          
-          
-          //在代码中设置 placementId
-          //mIconView.loadCreative(CreativeRequest.builder().placementId("placemenId").build());
-          ...
+
+          // 如果不需要回调可以忽略2、3直接调用显示
+          //mIconView.show();
       }
 
 }

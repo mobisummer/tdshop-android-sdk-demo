@@ -122,3 +122,10 @@
 - 【增强】相比2.2版本SDK包体积减少300KB，功能不减
 - 【变更】自动初始化逻辑变更，使用自动初始化需要在AndroidManifest添加TDInitProvider
 - 【增强】新增内嵌型商城入口
+
+# V2.3.1
+- 【修复】修复内嵌型商城入口加载错误的时候出现的NPE问题
+- 【修复】Catch deadSystemException
+- 【修复】解决在子线程中开启子线程可能造成的Thread start runtime shutdown 问题
+- 【修复】修复获取进程名的时候出现的NPE问题
+- 【修复】更新了TDBannerView、TDIconView的接入文档
