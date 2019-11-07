@@ -9,7 +9,7 @@
 
 ```groovy
 dependencies {
-    implementation 'com.tdshop.android:sdk:2.3.1'
+    implementation 'com.tdshop.android:sdk:2.3.2'
 }
 ```
 
