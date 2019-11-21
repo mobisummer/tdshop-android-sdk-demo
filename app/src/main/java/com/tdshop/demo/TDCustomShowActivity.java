@@ -50,7 +50,7 @@ public class TDCustomShowActivity extends AppCompatActivity {
             if (mCustomCreativeView.getCreativeMaterial() == null) {
               return;
             }
-            Glide.with(view.getContext())
+            Glide.with(getApplication())
                 .load(mCustomCreativeView.getCreativeMaterial().getImageUrl())
                 .into(mCustomCreativeView);
             mBadge.setBadgeText(mCustomCreativeView.getCreativeMaterial().getContent());

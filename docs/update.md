@@ -1,3 +1,7 @@
+# V2.3.3
+- 【修复】修复内置浏览器Scheme兼容性问题
+- 【修复】修复线上已知的问题
+
 # V2.3.2
 - 【修复】修复内嵌型商城Fragment被添加到ChildFragmentManager中出现的ClassCastException
 - 【修复】修复内嵌型商城入口初始化时可能出现的NPE问题
