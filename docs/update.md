@@ -1,3 +1,8 @@
+# V2.3.5
+- 【修复】Thread starting during runtime shutdown
+- 【修复】修复某些手机因为没有read phone state权限导致的崩溃问题
+- 【修复】修复Google play后台提醒的安全漏洞问题
+
 # V2.3.3
 - 【修复】修复内置浏览器Scheme兼容性问题
 - 【修复】修复线上已知的问题
